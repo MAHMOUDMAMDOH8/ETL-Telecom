@@ -1,0 +1,2572 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/23/2023 9:03:55 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-J839N2N"
+  DTS:CreatorName="DESKTOP-J839N2N\MAHMOUD"
+  DTS:DTSID="{3A2ADBB9-9A38-45AD-B68A-273DDB4B16DD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{E155DF5B-E20D-4022-BBB6-81F927A98384}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E6B2CBD6-1022-4DCA-B68B-D7AE5CEFB317}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Full_path]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Githup\ETL-Telecom\ETL-Telecom-SSIS-master\ETL-Telecom\source_files\batch 0\01_clean_data.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{A30C833D-A84F-43FD-9BA2-8582D7809501}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="imsi"
+              DTS:DTSID="{F24C40CC-1F47-46D7-8CEB-EBC0F2DF28C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="imei"
+              DTS:DTSID="{45E83F26-B394-4723-877A-4625E269A7BD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cell"
+              DTS:DTSID="{8C7D1A24-812E-4CD2-B744-BF95C1435974}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lac"
+              DTS:DTSID="{DEB8B6C6-92C5-4A1B-A888-D07EDB1EF4E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="event_type"
+              DTS:DTSID="{1F2CAFC3-9AD1-4F33-8D3D-C24EECEC3FF4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="event_ts"
+              DTS:DTSID="{3EBCE5C4-F78E-4D2C-A9EF-050F12890ADA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C3905CBC-F1F3-4E20-9644-FE35E6B0E9E5}"
+      DTS:ObjectName="LocalHost.Telecom_GrgEdu">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Telecom_GrgEdu;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{C3905CBC-F1F3-4E20-9644-FE35E6B0E9E5}LocalHost.Telecom_GrgEdu;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8CE3DDC9-9EB5-41B4-B5DE-5C25A4952867}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Aduit_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E579CF50-5B68-4AAB-A331-3228467F25D2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Batch_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{36D31EAD-42B5-4796-9DD6-E81E44B3CA87}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="dest_error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{69976E7E-5496-4557-8961-9497691C3189}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="extracted_error">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A489D39-BD40-4428-8DDC-BE73A7E87276}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="extracted_processed">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D9E9CF69-D63C-4039-84FE-F9BB32B2D8AD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_extention">
+      <DTS:VariableValue
+        DTS:DataType="8">.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{35D1431E-B108-4AF7-A88B-0BD8F4A6B461}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">01_clean_data</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{586B16A2-F1CA-4BDB-A118-16B0583FAD36}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Folder_Name">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Githup\ETL-Telecom\ETL-Telecom-SSIS-master\ETL-Telecom\source_files\batch 0\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FFFD4C04-1A07-4325-A4A3-638031E16180}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Folder_Name]+ @[User::File_Name]+ @[User::File_extention]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Full_path">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Githup\ETL-Telecom\ETL-Telecom-SSIS-master\ETL-Telecom\source_files\batch 0\01_clean_data.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CEECF935-DB62-465E-AB09-CFA5B575049A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Out_path">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Githup\ETL-Telecom\ETL-Telecom-SSIS-master\ETL-Telecom\output files\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{57DC7A3B-8BA7-4205-9DE9-2963045F5F33}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="pre_insert">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Loop over csv"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{BD52F67C-A91E-4E97-ACC8-1B3FB9B5787E}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loop over csv">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{DEC1040A-648F-4E56-BCE0-71E1C97D525A}"
+        DTS:ObjectName="{DEC1040A-648F-4E56-BCE0-71E1C97D525A}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\Githup\ETL-Telecom\ETL-Telecom-SSIS-master\ETL-Telecom\source_files\batch 0" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="2" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop over csv\Copy file"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{2DA6021D-33B4-450C-9106-296A4865869A}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Copy file"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::Full_path"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::Out_path"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop over csv\Lood csv into database"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{0213CFA5-C9A3-49FF-AA36-5DDE08F5DF9C}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Lood csv into database"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="ADD SNR,TAC"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Inputs[Derived Column Input].Columns[imei]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="14"
+                          cachedName="imei"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output].Columns[TAC]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="8"
+                          lineageId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output].Columns[TAC]"
+                          name="TAC"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,8,1252)(([ISNULL](#{Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]}) || [LEN](#{Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]}) &lt; 14) ? "-99999" : [SUBSTRING](#{Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]},1,8))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,8,1252)((ISNULL(imei) || LEN(imei) &lt; 14) ? "-99999" : SUBSTRING(imei,1,8))</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output].Columns[SNR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="6"
+                          lineageId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output].Columns[SNR]"
+                          name="SNR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,6,1252)(([ISNULL](#{Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]}) || [LEN](#{Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]}) &lt; 14) ? "-99999" : [SUBSTRING](#{Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]},9,14))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,6,1252)((ISNULL(imei) || LEN(imei) &lt; 14) ? "-99999" : SUBSTRING(imei,9,14))</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Aduit ID"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Aduit ID"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Aduit ID.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Aduit ID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Output].Columns[Aduit_ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Output].Columns[Aduit_ID]"
+                          name="Aduit_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::Aduit_ID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::Aduit_ID]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Aduit ID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Aduit_ID"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Aduit_ID"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Aduit_ID.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Aduit_ID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Output].Columns[Aduit_ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Output].Columns[Aduit_ID]"
+                          name="Aduit_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::Aduit_ID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::Aduit_ID]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Aduit_ID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Dest error"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Dest error">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::dest_error</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Dest error.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Dest error.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Dest error.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Error distnation"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Error distnation"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[err_destination_output]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop over csv\Lood csv into database\Error distnation.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[id]"
+                          cachedDataType="i4"
+                          cachedName="id"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[id]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[imsi]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="imsi"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[imsi]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imsi]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[imei]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="14"
+                          cachedName="imei"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[imei]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[cell]"
+                          cachedDataType="i4"
+                          cachedName="cell"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[cell]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[cell]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[lac]"
+                          cachedDataType="i4"
+                          cachedName="lac"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[lac]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[lac]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[event_type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="event_type"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[event_type]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[event_type]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[event_ts]"
+                          cachedDataType="date"
+                          cachedName="event_ts"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[event_ts]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[event_ts]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[TAC]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="TAC"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[tac]"
+                          lineageId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output].Columns[TAC]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[SNR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="6"
+                          cachedName="SNR"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[snr]"
+                          lineageId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output].Columns[SNR]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[subscriber_id]"
+                          cachedDataType="i4"
+                          cachedName="subscriber_id"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[subscriber_id]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output].Columns[subscriber_id]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].Columns[Aduit_ID]"
+                          cachedDataType="i4"
+                          cachedName="Aduit_ID"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Output].Columns[Aduit_ID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                          dataType="i4"
+                          name="audit_id" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[imsi]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="imsi" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[imei]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          name="imei" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[subscriber_id]"
+                          dataType="i4"
+                          name="subscriber_id" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[cell]"
+                          dataType="i4"
+                          name="cell" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[lac]"
+                          dataType="i4"
+                          name="lac" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[event_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="event_type" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[event_ts]"
+                          dataType="dbTimeStamp"
+                          name="event_ts" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[tac]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="tac" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[snr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="snr" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Error distnation.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Error distnation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error distnation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Error distnation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Error source"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Error source"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[err_source_output]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop over csv\Lood csv into database\Error source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].Columns[Flat File Source Error Output Column]"
+                          cachedCodepage="1252"
+                          cachedDataType="text"
+                          cachedName="Flat File Source Error Output Column"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[ErrorColumn]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].Columns[Aduit_ID]"
+                          cachedDataType="i4"
+                          cachedName="Aduit_ID"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Output].Columns[Aduit_ID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                          dataType="i4"
+                          name="audit_id" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Flat File Source Error Output Column" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Error source.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Error source.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Error source.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Error source.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Fact trunsacton"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Fact trunsacton"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Fact_transaction]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[imei]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="14"
+                          cachedName="imei"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[IMEI]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[cell]"
+                          cachedDataType="i4"
+                          cachedName="cell"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[CELL]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[cell]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[lac]"
+                          cachedDataType="i4"
+                          cachedName="lac"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[LAC]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[lac]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[event_type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="event_type"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[EVENT_TYPE]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[event_type]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[event_ts]"
+                          cachedDataType="date"
+                          cachedName="event_ts"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[EVENT_TS]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[event_ts]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[TAC]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="TAC"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[TAC]"
+                          lineageId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output].Columns[TAC]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[SNR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="6"
+                          cachedName="SNR"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[SNR]"
+                          lineageId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output].Columns[SNR]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[subscriber_id]"
+                          cachedDataType="i4"
+                          cachedName="subscriber_id"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[subscriber_id]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output].Columns[subscriber_id]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[id]"
+                          cachedDataType="i4"
+                          cachedName="id"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[transaction_id]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[id]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[imsi]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="imsi"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[IMIS]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imsi]" />
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].Columns[Aduit_ID]"
+                          cachedDataType="i4"
+                          cachedName="Aduit_ID"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Output].Columns[Aduit_ID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[transaction_id]"
+                          dataType="i4"
+                          name="transaction_id" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[IMIS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="IMIS" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[subscriber_id]"
+                          dataType="i4"
+                          name="subscriber_id" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[TAC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="TAC" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[SNR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          name="SNR" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[IMEI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          name="IMEI" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[CELL]"
+                          dataType="i4"
+                          name="CELL" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[LAC]"
+                          dataType="i4"
+                          name="LAC" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[EVENT_TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="EVENT_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[EVENT_TS]"
+                          dataType="dbTimeStamp"
+                          name="EVENT_TS" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input].ExternalColumns[audit_id]"
+                          dataType="i4"
+                          name="audit_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\inserted"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="inserted">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::pre_insert</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\inserted.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\inserted.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\inserted.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Lookup for sub id"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup for sub id"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_imsi_reference]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_imsi_reference]) [refTable]
+where [refTable].[imsi] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="imsi" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="subscriber_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imsi]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.Telecom_GrgEdu]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Inputs[Lookup Input].Columns[imsi]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="imsi"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imsi]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">imsi</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output].Columns[subscriber_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output].Columns[subscriber_id]"
+                          name="subscriber_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">subscriber_id</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::extracted_processed</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Row Count Ex_error"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count Ex_error">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::extracted_error</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\Row Count Ex_error.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Row Count Ex_error.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\Row Count Ex_error.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\Source Files"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Source Files"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop over csv\Lood csv into database\Source Files.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[id]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[id]"
+                          name="id"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imsi]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[imsi]"
+                          length="9"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imsi]"
+                          name="imsi"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[imei]"
+                          length="14"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[imei]"
+                          name="imei"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[cell]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[cell]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[cell]"
+                          name="cell"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[lac]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[lac]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[lac]"
+                          name="lac"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[event_type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[event_type]"
+                          length="1"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[event_type]"
+                          name="event_type"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[event_ts]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[event_ts]"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].Columns[event_ts]"
+                          name="event_ts"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[imsi]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="imsi" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[imei]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          name="imei" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[cell]"
+                          dataType="i4"
+                          name="cell" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[lac]"
+                          dataType="i4"
+                          name="lac" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[event_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="event_type" />
+                        <externalMetadataColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output].ExternalColumns[event_ts]"
+                          dataType="date"
+                          name="event_ts" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop over csv\Lood csv into database\SUB id null"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="SUB id null"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop over csv\Lood csv into database\SUB id null.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop over csv\Lood csv into database\SUB id null.Inputs[Derived Column Input].Columns[subscriber_id]"
+                          cachedDataType="i4"
+                          cachedName="subscriber_id"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output].Columns[subscriber_id]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[ISNULL](#{Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output].Columns[subscriber_id]}) ? -99999 : #{Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output].Columns[subscriber_id]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">ISNULL(subscriber_id) ? -99999 : subscriber_id</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\SUB id null.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\SUB id null.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop over csv\Lood csv into database\SUB id null.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Loop over csv\Lood csv into database\SUB id null.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\SUB id null.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\SUB id null.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop over csv\Lood csv into database\SUB id null.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop over csv\Lood csv into database\SUB id null.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Derived Column Output]"
+                  endId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Derived Column Output1]"
+                  endId="Package\Loop over csv\Lood csv into database\Row Count Ex_error.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\Loop over csv\Lood csv into database\Aduit_ID.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Derived Column Output2]"
+                  endId="Package\Loop over csv\Lood csv into database\Row Count.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\Loop over csv\Lood csv into database\Aduit ID.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Derived Column Output3]"
+                  endId="Package\Loop over csv\Lood csv into database\inserted.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\Loop over csv\Lood csv into database\SUB id null.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Flat File Source Error Output]"
+                  endId="Package\Loop over csv\Lood csv into database\Aduit_ID.Inputs[Derived Column Input]"
+                  name="Flat File Source Error Output"
+                  startId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Error Output]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Flat File Source Output]"
+                  endId="Package\Loop over csv\Lood csv into database\Aduit ID.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Loop over csv\Lood csv into database\Source Files.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Lookup Match Output]"
+                  endId="Package\Loop over csv\Lood csv into database\SUB id null.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Loop over csv\Lood csv into database\Lookup for sub id.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[OLE DB Destination Error Output]"
+                  endId="Package\Loop over csv\Lood csv into database\Dest error.Inputs[Row Count Input 1]"
+                  name="OLE DB Destination Error Output"
+                  startId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Outputs[OLE DB Destination Error Output]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Row Count Output 1]"
+                  endId="Package\Loop over csv\Lood csv into database\Error source.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Loop over csv\Lood csv into database\Row Count Ex_error.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Row Count Output 11]"
+                  endId="Package\Loop over csv\Lood csv into database\ADD SNR,TAC.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Loop over csv\Lood csv into database\Row Count.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Row Count Output 12]"
+                  endId="Package\Loop over csv\Lood csv into database\Fact trunsacton.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Loop over csv\Lood csv into database\inserted.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\Loop over csv\Lood csv into database.Paths[Row Count Output 13]"
+                  endId="Package\Loop over csv\Lood csv into database\Error distnation.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Loop over csv\Lood csv into database\Dest error.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop over csv\SQL_INSERT_AUDIT"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{de72be85-455f-4b2d-87d8-6e5e3d9dc148}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_INSERT_AUDIT"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C3905CBC-F1F3-4E20-9644-FE35E6B0E9E5}"
+              SQLTask:SqlStatementSource="insert into dim_audit ( batch_id, package_name, file_name, rows_extracted, rows_inserted, rows_rejected, SuccessfulProcessingInd)&#xA;output inserted.id as audit_id&#xA;values (&#xA; ?, -- 0 batch id&#xA; ?, -- 1 package name&#xA; ?, -- 2 file_name&#xA; NULL, -- 3 rows_extracted&#xA; NULL, -- 4 rows_inserted&#xA; NULL, -- 5 rows_rejected&#xA; 'N'&#xA; )"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::Aduit_ID" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Batch_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::File_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop over csv\update aduit"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6C089727-15E1-467B-9018-19AA7777E051}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="update aduit"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C3905CBC-F1F3-4E20-9644-FE35E6B0E9E5}"
+              SQLTask:SqlStatementSource="update dim_audit&#xA;set &#xA;    [rows_extracted] = ? + ?, -- 0  extracted processed + 1 extracted error&#xA;    [rows_inserted] = ? - ?, -- 2 pre insert -  3 dest error&#xA;    [rows_rejected] = ? + ?, -- 4 extracted error  +  5 dest error&#xA;    SuccessfulProcessingInd = 'Y'&#xA;where id = ? -- 6 audit_id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::extracted_processed"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::extracted_error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::pre_insert"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::dest_error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::extracted_error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::dest_error"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::Aduit_ID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop over csv.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{AD0817BB-D8DB-44E0-B886-A3B7BC999C74}"
+          DTS:From="Package\Loop over csv\SQL_INSERT_AUDIT"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Loop over csv\Lood csv into database" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop over csv.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{6039184F-DE7D-4DB8-87F7-1B81BAC35A56}"
+          DTS:From="Package\Loop over csv\Lood csv into database"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Loop over csv\update aduit" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop over csv.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{45F0114B-1383-4788-9089-B358FBC2F067}"
+          DTS:From="Package\Loop over csv\update aduit"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Loop over csv\Copy file" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{52F03D49-9B51-4033-9C9F-9905D4F553D5}"
+          DTS:ObjectName="{52F03D49-9B51-4033-9C9F-9905D4F553D5}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::File_Name" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Batch id"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0983CB7A-AE65-4641-AB6B-202EBD1F1B23}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Batch id"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C3905CBC-F1F3-4E20-9644-FE35E6B0E9E5}"
+          SQLTask:SqlStatementSource="select max(batch_id) + 1 as batch_id from dim_audit"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Batch_ID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5E0C028B-541C-479E-B930-DD70648D45B9}"
+      DTS:From="Package\SQL Batch id"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Loop over csv" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Loop over csv\Lood csv into database"
+          TopLeft="131.485714890884,81.7647055968075" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Loop over csv\SQL_INSERT_AUDIT"
+          TopLeft="135.828572070234,11.19999981768" />
+        <EdgeLayout
+          Id="Package\Loop over csv.PrecedenceConstraints[Constraint]"
+          TopLeft="224.257143480559,52.79999981768">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.9647057791275"
+              Start="0,0"
+              End="0,21.4647057791275">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4647057791275" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Loop over csv\Copy file"
+          TopLeft="27.9714289834913,203.141176120024" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Loop over csv\update aduit"
+          TopLeft="201.542857924408,155.976470283922" />
+        <EdgeLayout
+          Id="Package\Loop over csv.PrecedenceConstraints[Constraint 1]"
+          TopLeft="224.685714890884,123.364705596807">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45.657143033524,32.6117646871141"
+              Start="0,0"
+              End="45.657143033524,25.1117646871141">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.3058823435571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.3058823435571"
+                    Point2="0,16.3058823435571"
+                    Point3="4,16.3058823435571" />
+                  <mssgle:LineSegment
+                    End="41.657143033524,16.3058823435571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.657143033524,16.3058823435571"
+                    Point2="45.657143033524,16.3058823435571"
+                    Point3="45.657143033524,20.3058823435571" />
+                  <mssgle:LineSegment
+                    End="45.657143033524,25.1117646871141" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop over csv.PrecedenceConstraints[Constraint 2]"
+          TopLeft="201.542857924408,176.776470283922">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-54.3714289409167,47.1647058361025"
+              Start="0,0"
+              End="-46.8714289409167,47.1647058361025">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-23.1857144704584,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.1857144704584,0"
+                    Point2="-27.1857144704584,0"
+                    Point3="-27.1857144704584,4" />
+                  <mssgle:LineSegment
+                    End="-27.1857144704584,43.1647058361025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.1857144704584,43.1647058361025"
+                    Point2="-27.1857144704584,47.1647058361025"
+                    Point3="-31.1857144704584,47.1647058361025" />
+                  <mssgle:LineSegment
+                    End="-46.8714289409167,47.1647058361025" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="431.2,300"
+          Size="431.2,343.2"
+          Id="Package\Loop over csv"
+          TopLeft="165.714286067048,153.705882218212" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\SQL Batch id"
+          TopLeft="320.000000681196,53.5294117177853" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="385.257143374122,95.1294117177853">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.5764705004268"
+              Start="0,0"
+              End="0,51.0764705004268">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.0764705004268" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loop over csv\Lood csv into database">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Source Files"
+          TopLeft="447.142858094707,9.9411764618744" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Loop over csv\Lood csv into database\ADD SNR,TAC"
+          TopLeft="115.714285960611,94.0588234469656" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Lookup for sub id"
+          TopLeft="100.71428592868,195.764705710758" />
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Derived Column Output]"
+          TopLeft="184.614285944646,135.658823446966">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.105882263792"
+              Start="0,0"
+              End="0,52.605882263792">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.605882263792" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Loop over csv\Lood csv into database\SUB id null"
+          TopLeft="110.000000234161,300.52941150128" />
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Lookup Match Output]"
+          TopLeft="177.957143081421,237.364705710758">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.1647057905225"
+              Start="0,0"
+              End="0,55.6647057905225">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.6647057905225" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,22.0276653952613,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Fact trunsacton"
+          TopLeft="311.428572091521,403.764705528437" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Error distnation"
+          TopLeft="96.6666668724445,480.490195657263" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Error source"
+          TopLeft="614.285715593367,236.294117439938" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Aduit_ID"
+          TopLeft="613.571429877561,77.99999993163" />
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Flat File Source Error Output]"
+          TopLeft="535.409524761374,51.5411764618744">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="138.161905116188,26.4588234697556"
+              Start="0,0"
+              End="138.161905116188,18.9588234697556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.77029755357108" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.77029755357108"
+                    Point2="0,10.7702975535711"
+                    Point3="4,10.7702975535711" />
+                  <mssgle:LineSegment
+                    End="134.161905116188,10.7702975535711" />
+                  <mssgle:CubicBezierSegment
+                    Point1="134.161905116188,10.7702975535711"
+                    Point2="138.161905116188,10.7702975535711"
+                    Point3="138.161905116188,14.7702975535711" />
+                  <mssgle:LineSegment
+                    End="138.161905116188,18.9588234697556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.45456583934378,15.7702975535711,127.2527734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Row Count Ex_error"
+          TopLeft="591.428572687567,157.529411626625" />
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Derived Column Output1]"
+          TopLeft="675.700001282564,119.59999993163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9294116949953"
+              Start="0,0"
+              End="0,30.4294116949953">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4294116949953" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Row Count Output 1]"
+          TopLeft="680.057144140467,199.129411626625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.1647058133126"
+              Start="0,0"
+              End="0,29.6647058133126">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.6647058133126" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Aduit ID"
+          TopLeft="250.714286247991,16.7176471332262" />
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Flat File Source Output]"
+          TopLeft="447.142858094707,34.1294117975503">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-79.6285718467165,0"
+              Start="0,0"
+              End="-72.1285718467165,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-72.1285718467165,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Row Count"
+          TopLeft="89.2857144757802,17.5882352787009" />
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Derived Column Output2]"
+          TopLeft="250.714286247991,37.9529412059635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.8285717722105,0"
+              Start="0,0"
+              End="-24.3285717722105,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-24.3285717722105,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Row Count Output 11]"
+          TopLeft="154.08571447578,59.1882352787009">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.0285714848309,34.8705881682647"
+              Start="0,0"
+              End="34.0285714848309,27.3705881682647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4352940841323" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4352940841323"
+                    Point2="0,17.4352940841323"
+                    Point3="4,17.4352940841323" />
+                  <mssgle:LineSegment
+                    End="30.0285714848309,17.4352940841323" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.0285714848309,17.4352940841323"
+                    Point2="34.0285714848309,17.4352940841323"
+                    Point3="34.0285714848309,21.4352940841323" />
+                  <mssgle:LineSegment
+                    End="34.0285714848309,27.3705881682647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="116,41.6"
+          Id="Package\Loop over csv\Lood csv into database\inserted"
+          TopLeft="110.000000234161,397.929411467095" />
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Derived Column Output3]"
+          TopLeft="171.400000234161,342.12941150128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.799999965815"
+              Start="0,0"
+              End="0,48.299999965815">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.299999965815" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Row Count Output 12]"
+          TopLeft="226.000000234161,421.647058497766">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.4285718573599,0"
+              Start="0,0"
+              End="77.9285718573599,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77.9285718573599,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Loop over csv\Lood csv into database\Dest error"
+          TopLeft="319.841270522128,478.405228339608" />
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[OLE DB Destination Error Output]"
+          TopLeft="384.834921306824,445.364705528437">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.0405228111708"
+              Start="0,0"
+              End="0,25.5405228111708">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5405228111708" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.20890625,7.05346453058542,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop over csv\Lood csv into database.Paths[Row Count Output 13]"
+          TopLeft="319.841270522128,500.247711998436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-71.9746036496832,0"
+              Start="0,0"
+              End="-64.4746036496832,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-64.4746036496832,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop over csv\Lood csv into database\Lookup for sub id">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_imsi_reference]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop over csv\Lood csv into database\Fact trunsacton">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop over csv\Lood csv into database\Error distnation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop over csv\Lood csv into database\Error source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
